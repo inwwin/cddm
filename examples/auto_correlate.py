@@ -45,11 +45,11 @@ if __name__ == "__main__":
     import os.path as p
 
     #: now perform auto correlation calculation with default parameters 
-    data = acorr(fft_array)
+    data = acorr(fft_array, method='diff')
     bg, var = stats(fft_array)
     
     #: perform normalization and merge data
-    data_lin = normalize(data, bg, var, scale = True)
+    data_lin = normalize(data, bg, var, scale = True, mode='diff')
     
     #: inspect the data
     viewer = DataViewer()
