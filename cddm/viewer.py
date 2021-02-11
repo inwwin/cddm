@@ -97,10 +97,11 @@ class VideoViewer(object):
         self.playing = False
         self.step_fast = count/100
         self.step = 1
+        self.pause_duration = 0.001
         
         def _play():
             while self.playing:
-                plt.pause(0.001)
+                plt.pause(self.pause_duration)
                 next_frame = self.sframe.val + self.step
                 if next_frame >= count:
                     self.playing = False
